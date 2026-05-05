@@ -4,169 +4,185 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucknow Tech Labs | AI & Software Solutions</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        .hero {
-            background: linear-gradient(135deg, #4e54c8, #8f94fb);
-            min-height: 100vh;
-            padding-top: 100px;
-            color: white;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', sans-serif; }
+        .hero-bg { background: linear-gradient(135deg, #1e2937 0%, #312e81 100%); }
+        .service-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .service-card:hover { transform: translateY(-15px) scale(1.03); }
     </style>
 </head>
-<body>
+<body class="bg-zinc-950 text-white">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <i class="bi bi-cpu"></i> Lucknow Tech Labs
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-                </ul>
+    <nav class="bg-zinc-950 border-b border-zinc-800 fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Lucknow Tech Labs" class="h-11">
+                <span class="heading-font text-2xl font-semibold tracking-tight">LucknowTechLabs</span>
             </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#" class="hover:text-indigo-400">Home</a>
+                <a href="#services" class="hover:text-indigo-400">Services</a>
+                <a href="#about" class="hover:text-indigo-400">About</a>
+                <a href="#products" class="hover:text-indigo-400">Portfolio</a>
+                <a href="#contact" class="hover:text-indigo-400">Contact</a>
+            </div>
+
+            <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })" 
+                    class="px-6 py-2.5 bg-white text-zinc-900 rounded-full font-semibold hover:bg-indigo-100 transition">
+                Get Free Quote
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero d-flex align-items-center text-center">
-        <div class="container">
-            <h1 class="display-3 fw-bold">Welcome to Lucknow Tech Labs</h1>
-            <p class="lead">Your Trusted Partner in AI & Software Solutions</p>
-            <p class="lead">Empowering businesses with innovative technology in Lucknow</p>
-            <a href="#products" class="btn btn-danger btn-lg px-5 py-3 mt-3">Explore Our Solutions</a>
+    <!-- Hero -->
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="pt-12 md:pt-0">
+                <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-sm mb-6">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    Trusted by 150+ Companies in Uttar Pradesh
+                </div>
+                <h1 class="heading-font text-6xl md:text-7xl font-bold leading-tight mb-6">
+                    Your Software,<br>Our <span class="text-indigo-400">Expertise</span>
+                </h1>
+                <p class="text-xl text-zinc-300 mb-10">Professional software support, maintenance, and IT solutions in Lucknow.</p>
+                <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })" 
+                        class="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 rounded-2xl font-semibold text-lg">
+                    Get Support Now →
+                </button>
+            </div>
+            <div>
+                <img src="https://picsum.photos/id/1015/800/620" class="rounded-3xl shadow-2xl" alt="Hero">
+            </div>
         </div>
     </section>
 
-    <!-- What We Offer -->
-    <section class="py-5 bg-light" id="services">
-        <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">What We Offer</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 text-center p-4 shadow-sm">
-                        <i class="bi bi-laptop display-1 text-primary mb-3"></i>
-                        <h4>Custom Software Development</h4>
-                        <p class="text-muted">Tailored software solutions designed to meet your unique business requirements.</p>
-                    </div>
+    <!-- Trust Bar -->
+    <div class="bg-zinc-900 py-6 border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-75">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" class="h-6">
+            <img src="https://www.vectorlogo.zone/logos/microsoft/microsoft-icon.svg" class="h-8">
+            <span class="text-2xl font-bold text-zinc-400">TCS</span>
+            <span class="text-2xl font-bold text-zinc-400">HCL</span>
+            <span class="text-2xl font-bold text-emerald-400">Infosys</span>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="text-indigo-400 font-semibold tracking-widest">OUR EXPERTISE</div>
+                <h2 class="heading-font text-5xl font-bold mt-3">Comprehensive Software Support Solutions</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card bg-zinc-900 rounded-3xl p-8 border border-zinc-800">
+                    <i class="fas fa-wrench text-4xl text-indigo-400 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-3">24×7 Technical Support</h3>
+                    <p class="text-zinc-400">Round-the-clock monitoring, troubleshooting, and issue resolution.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 text-center p-4 shadow-sm">
-                        <i class="bi bi-robot display-1 text-primary mb-3"></i>
-                        <h4>AI & Machine Learning</h4>
-                        <p class="text-muted">Intelligent solutions using Artificial Intelligence and modern technology.</p>
-                    </div>
+                <div class="service-card bg-zinc-900 rounded-3xl p-8 border border-zinc-800">
+                    <i class="fas fa-cloud text-4xl text-sky-400 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-3">Cloud Migration & Management</h3>
+                    <p class="text-zinc-400">Seamless migration to AWS, Azure, or Google Cloud.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 text-center p-4 shadow-sm">
-                        <i class="bi bi-headset display-1 text-primary mb-3"></i>
-                        <h4>24/7 IT Support</h4>
-                        <p class="text-muted">Round-the-clock technical support for all your business needs.</p>
-                    </div>
+                <div class="service-card bg-zinc-900 rounded-3xl p-8 border border-zinc-800">
+                    <i class="fas fa-shield-alt text-4xl text-red-400 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-3">Cybersecurity & Maintenance</h3>
+                    <p class="text-zinc-400">Proactive security audits and regular maintenance.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Flagship Products -->
-    <section class="py-5" id="products">
-        <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">Our Flagship Products</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <i class="bi bi-person-badge display-4 text-info"></i>
-                            <h4 class="mt-3">Student Manager</h4>
-                            <p>Complete student information system for schools and colleges.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <i class="bi bi-receipt display-4 text-info"></i>
-                            <h4 class="mt-3">Billing Manager</h4>
-                            <p>Smart invoicing and billing system for businesses.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
+    <!-- About -->
+    <section id="about" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <img src="https://picsum.photos/id/1015/700/520" class="rounded-3xl" alt="About">
+            </div>
+            <div>
+                <h2 class="heading-font text-5xl font-bold mb-6">Lucknow-based. Globally Trusted.</h2>
+                <p class="text-zinc-300 text-lg">Founded in 2021, LucknowTechLabs has been helping businesses across North India keep their software running smoothly and securely.</p>
+                <p class="text-zinc-400 mt-6">Our team of 45+ certified engineers specializes in modern tech stacks including .NET, Java, React, Node.js, Python, and cloud platforms.</p>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">Why Choose Lucknow Tech Labs?</h2>
-            <div class="row text-center">
-                <div class="col-md-3 mb-4">
-                    <i class="bi bi-award display-4 text-primary"></i>
-                    <h5 class="mt-3">10+ Years Experience</h5>
-                    <p>Proven track record in delivering quality solutions</p>
+    <!-- Testimonials -->
+    <section class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-center heading-font text-4xl font-bold mb-12">What Our Clients Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-zinc-800 rounded-3xl p-8">
+                    <div class="text-amber-400 text-4xl mb-4">★★★★★</div>
+                    <p class="italic">"LucknowTechLabs saved our company during a critical system outage within 40 minutes."</p>
+                    <div class="mt-8 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-zinc-700 rounded-full"></div>
+                        <div>
+                            <div class="font-medium">Pradeep Sharma</div>
+                            <div class="text-sm text-zinc-400">Director, 24 News India</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <i class="bi bi-people display-4 text-primary"></i>
-                    <h5 class="mt-3">Expert Team</h5>
-                    <p>Skilled professionals dedicated to your success</p>
+                <!-- Add more testimonials if needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="heading-font text-5xl font-bold mb-8">Get in Touch With Our Experts</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <i class="fas fa-phone text-3xl text-indigo-400 mt-1"></i>
+                            <div>
+                                <div class="font-medium text-xl">+91 7897560058</div>
+                                <div class="text-zinc-400">Mon - Sat, 9 AM - 7 PM</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <i class="fas fa-envelope text-3xl text-indigo-400 mt-1"></i>
+                            <div>
+                                <div class="font-medium text-xl">support@lucknowtechlabs.com</div>
+                                <div class="text-zinc-400">We reply within 2 hours</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <i class="fas fa-map-marker-alt text-3xl text-indigo-400 mt-1"></i>
+                            <div>
+                                <div class="font-medium text-xl">Sector-17 , Vrindavan, Lucknow, Uttar Pradesh</div>
+                                <div class="text-zinc-400">India</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <i class="bi bi-shield-check display-4 text-primary"></i>
-                    <h5 class="mt-3">Secure & Reliable</h5>
-                    <p>Enterprise-grade security and 99.9% uptime</p>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <i class="bi bi-graph-up display-4 text-primary"></i>
-                    <h5 class="mt-3">Scalable Solutions</h5>
-                    <p>Grow your business without limits</p>
-                </div>
+                <!-- Contact Form -->
+                <form class="bg-zinc-900 rounded-3xl p-10 space-y-6">
+                    <input type="text" placeholder="First Name" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4">
+                    <input type="email" placeholder="Business Email" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4">
+                    <textarea placeholder="Tell us about your requirements..." rows="5" class="w-full bg-zinc-800 border border-zinc-700 rounded-3xl px-6 py-4"></textarea>
+                    <button type="button" class="w-full bg-indigo-600 hover:bg-indigo-700 py-5 rounded-2xl font-semibold text-lg">
+                        Send Message
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-light py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5><i class="bi bi-cpu"></i> Lucknow Tech Labs</h5>
-                    <p>Leading AI & Software company in Lucknow providing innovative solutions.</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li>Home</li>
-                        <li>Products</li>
-                        <li>Services</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>Contact Info</h5>
-                    <p><i class="bi bi-envelope"></i> info@lucknowtechlabs.com</p>
-                    <p><i class="bi bi-telephone"></i> +91-7897560058</p>
-                    <p><i class="bi bi-geo-alt"></i> Lucknow, Uttar Pradesh</p>
-                </div>
-            </div>
-            <hr>
-            <div class="text-center">
-                &copy; 2026 Lucknow Tech Labs. All rights reserved.
-            </div>
+    <footer class="bg-black py-16">
+        <div class="max-w-7xl mx-auto px-6 text-center text-zinc-500 text-sm">
+            © 2026 Lucknow Tech Labs. All rights reserved.
         </div>
     </footer>
 
